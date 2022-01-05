@@ -1,0 +1,51 @@
+
+
+// 定义全局样式 
+
+
+@fontSize: 12px;
+@fontColor: red;
+
+
+@list: apple, pear, coconut, orange;
+// value: extract(@list, 3);  //value: coconut;
+
+body{
+  --themeColor:#000;
+  --themeFontSize:10px;
+}
+
+
+
+
+
+.theme1{
+  .theme();
+}
+.theme2{
+  .theme(red,purple);
+}
+
+.theme(@backcolor:green,@fcolor:black){
+  .red{
+    color:@fcolor;
+    background-color: @backcolor;
+  }
+}
+
+
+
+
+// 清除浮动
+.clearfix {
+  display: block;
+  zoom: 1;
+  &:after {
+    content: " ";
+    display: block;
+    font-size: 0;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
