@@ -4,13 +4,12 @@
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 // import HelloWorld from './components/HelloWorld.vue'
 import {Login,About} from '@/config/api'
-console.log(Login,About)
 
-Login.login({add:'123456'}).then(res=>{
-  console.log(res)
-}).finally(err=>{
-  console.log(err)
-})
+// Login.login({add:'123456'}).then(res=>{
+//   console.log(res)
+// }).finally(err=>{
+//   console.log(err)
+// })
 
 const color='red'
 let fontSize='20px'
@@ -24,6 +23,8 @@ function setFont(){
   this.fontSizess++
 
   document.getElementById('app').className='theme'+this.count
+
+  window.document.documentElement.setAttribute('data-size', this.count)
 
   // document.body.style.setProperty('--themeColor','#ff6050')
   // document.body.style.setProperty('--themeFontSize','20px')
@@ -53,12 +54,15 @@ function setFont(){
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  
+  .add-size()
 }
 // 样式表中可以直接使用变量
 .abouts{
   color: @fontColor;
+
   // setup函数中的变量  在style样式中可以使用 v-bind 引用
-  font-size: v-bind(fontSize);
+  // font-size: v-bind(fontSize);
 
 
   // 借助style setProperty 实现动态变化
