@@ -1,10 +1,17 @@
+
 <script setup>
 // This starter template is using Vue 3 <script setup> SFCs
 // Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
 // import HelloWorld from './components/HelloWorld.vue'
- 
-      
-      
+import {Login,About} from '@/config/api'
+console.log(Login,About)
+
+Login.login({add:'123456'}).then(res=>{
+  console.log(res)
+}).finally(err=>{
+  console.log(err)
+})
+
 const color='red'
 let fontSize='20px'
 let fontSizes=20
