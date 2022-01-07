@@ -5,11 +5,11 @@
 // import HelloWorld from './components/HelloWorld.vue'
 import {Login,About} from '@/config/api'
 
-// Login.login({add:'123456'}).then(res=>{
-//   console.log(res)
-// }).finally(err=>{
-//   console.log(err)
-// })
+Login.login({name:'admin',password:'8888888'}).then(res=>{
+  console.log(res)
+}).catch(err=>{
+  console.log(err.message,'8989')
+})
 
 const color='red'
 let fontSize='20px'
@@ -54,7 +54,7 @@ function setFont(){
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
-  
+
   .add-size()
 }
 // 样式表中可以直接使用变量

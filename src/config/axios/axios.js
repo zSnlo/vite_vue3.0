@@ -1,7 +1,6 @@
 import axios from 'axios'
 import baseConfig from './config'
 
-console.log(baseConfig)
 // create an axios instance
 const service = axios.create({
     baseURL: baseConfig.axios_baseURL_dev,
@@ -39,8 +38,9 @@ service.interceptors.response.use(
         //json报文
         // if the custom code is not 200, it is judged as an error.
         if (res.code !== 200) {
-            console.log(res)
-            return Promise.reject(new Error(res.message || 'Error'))
+            // console.log(res)
+            return Promise.reject(res)
+            // return Promise.reject(new Error(res || 'Error'))
         } else {
 
             return res
@@ -59,9 +59,10 @@ function apiAxios (method, url, params, type) {
             data: method === 'POST' || method === 'PUT' || type === 'GET' ? params : null,
             params: method === 'GET' || method === 'DELETE' || type === 'POST' ? params : null,
         }).then(response => {
-            resolve(response.data)
+            resolve(response)
         }).catch(function (err) {
-            reject(err.response)
+            reject(err)
+            // reject(err.response)
         })
     })
 }
